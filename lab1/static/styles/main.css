@@ -1,0 +1,145 @@
+/* наследование шрифта */
+html {
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* псевдоэлементы - позволяют добавлять содержимое, начинаются с :: */
+/* псевдоклассы - позволяют выбирать эл-ты в определенном состоянии, начинаются с : */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /* расстояние мд строками */
+    line-height: 1.5;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* селектор дочерних эл-ов */
+/* выберет p внутри div только на 1 ур-не вложенности */
+/* кроме того, каскадирование, так как переопределяется шрифт */
+#header > p{
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #51c7c7;
+}
+
+#option, #x {
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #424242;
+    color: #f0f0f0;
+    padding: 0 3% 0 3%;
+}
+
+#x{
+    width: 10%;
+}
+
+label[for="option"] {
+    margin-right: 8%;
+    font-weight: bold;
+    color: #51c7c7;
+}
+
+label[for="x"] {
+    margin-left: 3%;
+    margin-right: 6%;
+    font-weight: bold;
+    color: #51c7c7;
+}
+
+label[for="radio"] {
+    font-weight: bold;
+    color: #51c7c7;
+}
+
+/* селектор классов */
+#data button[type="submit"] {
+    border: 2px solid #51c7c7;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 3% 4%;
+    border-radius: 25px;
+    transition: all 1s;
+    color: #51c7c7;
+    position: relative;
+    overflow: hidden;
+}
+
+/* псевдоэлемент */
+#data button[type="submit"]::before {
+    content: "";
+    position: absolute; /* абсолютная позиция относительно ближайшего relative */
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #51c7c7;
+    transition: all 1s; /* время выполнения анимации */
+    z-index: -1; /* под всеми */
+    transform: translateX(-100%); /* сдвинуть на 100% влево */
+}
+
+#data button[type="submit"]::after {
+    content: "";
+    position: absolute; /* абсолютная позиция относительно ближайшего relative */
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #51c7c7;
+    transition: all 1s; /* время выполнения анимации */
+    z-index: -1; /* под всеми */
+    transform: translateX(200%); /* сдвинуть на 100% влево */
+}
+
+/* псевдокласс */
+#data button[type="submit"]:hover::before {
+    transform: translateX(0%);
+}
+
+#data button[type="submit"]:hover::after {
+    transform: translateX(100%);
+}
+
+#data button[type="submit"]:hover {
+    color: #1e1e1e;
+}
+
+
+
+#result-table {
+    border: 1px solid #444;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#result-table th, td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+}
+
+#result-table th {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+#result-table td {
+    background-color: #2a2a2a;
+}
+
+#error {
+    color: #FF6961;
+}
+
+#good {
+    color: rgb(24, 202, 92);
+}
